@@ -46,7 +46,7 @@ Complete MERN stack website for Graphis Design company who sales different types
 
 ##
 
-![alt preview](https://i.imgur.com/Dy29adh.gifv)
+![alt preview](https://i.imgur.com/Dy29adh.gif)
 
 ![alt preview](src/images/React-Creative-Agency-App.png)
 
