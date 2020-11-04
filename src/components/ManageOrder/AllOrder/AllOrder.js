@@ -94,6 +94,7 @@ const AllOrder = () => {
                                 <td>{a.email}</td>
                                 <td>{a.serviceName}</td>
                                 <td>{a.details}</td>
+
                                 <td>
                                     <Dropdown options={options} onChange={(e) => { change(e, `${a._id}`) }} value={defaultOption} placeholder="Select an option" />
                                 </td>
