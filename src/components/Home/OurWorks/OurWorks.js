@@ -5,8 +5,6 @@ import carousel2 from '../../../images/carousel-2.png';
 import carousel3 from '../../../images/carousel-3.png';
 import carousel4 from '../../../images/carousel-4.png';
 import carousel5 from '../../../images/carousel-5.png';
-
-import ReactDOM from 'react-dom';
 import './OurWorks.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
@@ -14,7 +12,7 @@ import { Carousel } from 'react-responsive-carousel';
 const OurWorks = () => {
     return (
 
-        <section className="testimonials">
+        <section className="testimonials" id="ourWorks">
             <h1 className="text-white my-5">Here are some of <span style={{ color: '#7AB259' }}>our works</span></h1>
             <Carousel>
 

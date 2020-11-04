@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../../App';
 import Sidebar from '../Sidebar/Sidebar';
 
 const Dashboard = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { name, email, photoURL } = loggedInUser;
+
+
 
     const containerStyle = {
         height: "100%",
@@ -10,23 +16,16 @@ const Dashboard = () => {
     return (
         <section>
 
-            {/* <div className="row">
-                <div >
-                    <Sidebar></Sidebar>
-                </div>
-
-                <div className="col-md-6">
-                    <OrderHistory></OrderHistory>
-                </div>
-            </div> */}
-
             <div style={containerStyle} className="container-fluid row">
                 <div className="col-md-2">
                     <Sidebar></Sidebar>
                 </div>
 
-                <div className="col-md-10">
-                    <h1 className="text-center mt-5 bg-light">Welcome to Dashboard</h1>
+                <div className="col-md-10 bg-light">
+                    <h1 style={{ fontSize: 50 }} className="text-center mt-5 animate__animated animate__zoomIn">
+                        Welcome <span className="text-success">{name}</span> to Dashboard
+                    </h1>
+                    <hr />
                 </div>
             </div>
 

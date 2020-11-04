@@ -27,3 +27,14 @@
   background: #111430;
   color: white;
 }
+
+/* For card animation start*/
+.trans-card {
+  transition: 0.4s;
+}
+
+.trans-card:hover {
+  transform: translateY(-1rem);
+}
+/* For card animation end*/
+

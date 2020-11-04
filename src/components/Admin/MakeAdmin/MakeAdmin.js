@@ -33,18 +33,11 @@ const MakeAdmin = () => {
             <Sidebar></Sidebar>
             </div>
 
-
-            {/* <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}> */}
             <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
 
-                {/* <div className="pt-5 ml-5 d-flex justify-content-between">
-                    <h1>Add Admin</h1>
-                    <h3 className="mr-5">{name}</h3>
-                </div> */}
-
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
-                    <h1>Add Admin</h1>
-                    <div class="ml-auto">
+                    <h1 className="animate__animated animate__fadeInLeft">Add Admin</h1>
+                    <div class="ml-auto animate__animated animate__fadeInRight">
                         <div className="row align-items-center">
                             <h5>{name}</h5>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />

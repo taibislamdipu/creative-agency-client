@@ -23,7 +23,8 @@ Complete MERN stack website for Graphis Design company who sales different types
 * Framework: React.js, Bootstrap
 * Libraries: Create-React-App, React Spring, React Router, React Hook Form, React Responsive Carousel.
 * Backend: Node.js, Express.js
-* Database: MongoDB
+* Database: MongoDB, Heroku
+* Hosting: Firebase
 
 ## Installation Guide
 
@@ -31,16 +32,23 @@ Complete MERN stack website for Graphis Design company who sales different types
 
 ## Link of API's
 
+* https://fierce-cliffs-21804.herokuapp.com/
+* https://fierce-cliffs-21804.herokuapp.com/addOrder
 * https://fierce-cliffs-21804.herokuapp.com/addService
-* https://fierce-cliffs-21804.herokuapp.com/adminEmail
 * https://fierce-cliffs-21804.herokuapp.com/allOrders
+* https://fierce-cliffs-21804.herokuapp.com/addReview
 * https://fierce-cliffs-21804.herokuapp.com/reviews
 * https://fierce-cliffs-21804.herokuapp.com/getServices
-* https://fierce-cliffs-21804.herokuapp.com/addOrder
-* https://fierce-cliffs-21804.herokuapp.com/addReview
+* https://fierce-cliffs-21804.herokuapp.com/adminEmail
+* https://fierce-cliffs-21804.herokuapp.com/isAdmin
+* https://fierce-cliffs-21804.herokuapp.com/specificOrder
+* https://fierce-cliffs-21804.herokuapp.com/update/:id
 
 ##
 
+![alt preview](https://i.imgur.com/Dy29adh.gifv)
+
 ![alt preview](src/images/React-Creative-Agency-App.png)
+
 
 

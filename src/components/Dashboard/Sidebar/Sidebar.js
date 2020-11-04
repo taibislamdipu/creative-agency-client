@@ -6,6 +6,9 @@ import { faList, faSignOutAlt, faCommentDots, faPlus, faUserPlus, faShoppingCart
 import { UserContext } from '../../../App';
 import logo from '../../../images/logos/logo.png';
 
+import * as firebase from "firebase/app";
+import firebaseConfig from '../../Login/firebase.config';
+
 
 const Sidebar = () => {
 
@@ -13,7 +16,7 @@ const Sidebar = () => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/admin?email=${loggedInUser.email}`)
+    //     fetch(`https://fierce-cliffs-21804.herokuapp.com/admin?email=${loggedInUser.email}`)
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log('admin props', data);
@@ -31,7 +34,7 @@ const Sidebar = () => {
     // }, [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/isAdmin', {
+        fetch('https://fierce-cliffs-21804.herokuapp.com/isAdmin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -39,6 +42,38 @@ const Sidebar = () => {
             .then(res => res.json())
             .then(data => setIsAdmin(data));
     }, [])
+
+    const [user, setUser] = useState({
+        isSignedIn: false,
+        name: '',
+        email: '',
+        phone: ''
+    });
+
+    // google sign-out
+    const handleSignOut = () => {
+
+        if (firebase.apps.length === 0) {
+            firebase.initializeApp(firebaseConfig);
+        }
+
+        firebase.auth().signOut()
+            .then(res => {
+                const signOutUser = {
+                    isSignedIn: false,
+                    name: '',
+                    email: '',
+                    photo: ''
+                }
+                setUser(signOutUser);
+                console.log(res);
+            })
+
+            .catch(err => {
+                console.log(err);
+                console.log(err.message);
+            })
+    }
 
 
     return (
@@ -90,7 +125,7 @@ const Sidebar = () => {
 
             </ul>
             <div className="text-center my-5">
-                <Link to="/" className="text-dark"><FontAwesomeIcon icon={faSignOutAlt} /> <span>Logout</span></Link>
+                <Link to="/" onClick={handleSignOut} className="text-dark"><FontAwesomeIcon icon={faSignOutAlt} /> <span className="logoutBtn">Logout</span></Link>
             </div>
         </div>
 

@@ -14,8 +14,8 @@ const Admin = () => {
             </div>
 
             <div className="col-md-10">
-                {/* <OrderHistory></OrderHistory> */}
-                <AllOrder></AllOrder>
+                <OrderHistory></OrderHistory>
+                {/* <AllOrder></AllOrder> */}
             </div>
         </div>
     );

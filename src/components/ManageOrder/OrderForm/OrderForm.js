@@ -4,6 +4,9 @@ import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 
 const OrderForm = () => {
 
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const { name, email, photoURL } = loggedInUser;
+
     const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
 
@@ -13,10 +16,7 @@ const OrderForm = () => {
         setInfo(newInfo);
     }
 
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const { name, email, photoURL } = loggedInUser;
-
-    const onSubmit = (data) => {
+    const onSubmit = data => {
         data.preventDefault();
         const formData = new FormData();
         formData.append('file', file);
@@ -30,7 +30,7 @@ const OrderForm = () => {
         // console.log('user data', data);
 
         // insert order info to database
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://fierce-cliffs-21804.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
@@ -79,9 +79,9 @@ const OrderForm = () => {
                 <hr /> */}
 
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
-                    <h1>Order</h1>
+                    <h1 className="animate__animated animate__fadeInLeft">Order</h1>
                     <div class="ml-auto">
-                        <div className="row align-items-center">
+                        <div className="row align-items-center animate__animated animate__fadeInRight">
                             <h5>{name}</h5>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
@@ -89,26 +89,26 @@ const OrderForm = () => {
                 </div>
 
 
-                <form onSubmit={onSubmit} className="customFormStyle" >
+                <form onSubmit={onSubmit} className="customFormStyle " >
 
-                    <div className="form-group">
+                    <div className="form-group animate__animated animate__slideInRight">
                         <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" value={name} placeholder="Your name / company’s name" required />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group animate__animated animate__slideInRight">
                         <input type="email" onBlur={handleBlur} name="email" className="form-control form-control-lg" value={email} placeholder="Your email address" required />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group animate__animated animate__slideInRight">
                         <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" placeholder="Graphic Design" required />
 
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group animate__animated animate__slideInRight">
                         <textarea type="text" onBlur={handleBlur} name="details" className="form-control" cols="30" rows="6" placeholder="Project Details"></textarea>
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group animate__animated animate__slideInRight">
                         <div class="form-row">
                             <div class="col">
                                 <input type="number" onBlur={handleBlur} name="price" className="form-control form-control-lg" placeholder="Price" />
@@ -120,7 +120,7 @@ const OrderForm = () => {
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btnSubmit" >Submit</button>
+                    <button type="submit" class="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
 
                 </form>
             </div>

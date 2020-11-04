@@ -11,3 +11,7 @@
 .sideBarlink{
     color: black;
 }
+
+.logoutBtn:hover {
+    color: red;
+  }

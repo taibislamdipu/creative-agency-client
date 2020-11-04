@@ -27,7 +27,7 @@ const AddService = () => {
 
         console.log('service data', data);
 
-        fetch('http://localhost:5000/addService', {
+        fetch('https://fierce-cliffs-21804.herokuapp.com/addService', {
             method: 'POST',
             body: formData
         })
@@ -61,8 +61,8 @@ const AddService = () => {
                     <h3 className="mr-5">{name}</h3>
                 </div> */}
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
-                    <h1>Add Service</h1>
-                    <div class="ml-auto">
+                    <h1 className="animate__animated animate__fadeInLeft">Add Service</h1>
+                    <div class="ml-auto animate__animated animate__fadeInRight">
                         <div className="row align-items-center">
                             <h5>{name}</h5>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
