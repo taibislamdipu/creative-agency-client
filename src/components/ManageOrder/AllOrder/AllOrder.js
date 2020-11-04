@@ -5,7 +5,7 @@ import 'react-dropdown/style.css';
 const AllOrder = ({ allOrders }) => {
 
     console.log('allOrders props', allOrders);
-    const { _id, name, email, serviceName, details, orderImg } = allOrders;
+    const { _id, name, email, serviceName, details, orderImg, date } = allOrders;
 
     const newStatus = allOrders.status;
 
@@ -57,6 +57,7 @@ const AllOrder = ({ allOrders }) => {
                         <th scope="col">Service</th>
                         <th scope="col">Project Details</th>
                         <th scope="col">Image</th>
+                        <th scope="col">Ordered</th>
                         <th scope="col">Status</th>
                     </tr>
                 </thead>
@@ -66,6 +67,7 @@ const AllOrder = ({ allOrders }) => {
                         <td>{email}</td>
                         <td>{serviceName}</td>
                         <td>{details}</td>
+
                         <td>
                             {
                                 allOrders.orderImg ? <img className="rounded-circle " style={{ height: '40px' }} src={`data:image/png;base64,${allOrders.orderImg.img}`} alt="" />
@@ -73,6 +75,7 @@ const AllOrder = ({ allOrders }) => {
                                     <img className="rounded-circle" style={{ height: '40px' }} src={`https://fierce-cliffs-21804.herokuapp.com/allOrders/${orderImg.img}`} alt="" />
                             }
                         </td>
+                        <td>{date}</td>
                         <td>
                             <Dropdown options={options} onChange={(e) => { change(e, `${_id}`) }} value={newStatus} /* placeholder="Select an option" */ />
                         </td>
