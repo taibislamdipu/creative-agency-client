@@ -9,6 +9,8 @@ const ServiceList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
 
+
+
     useEffect(() => {
         fetch(`https://fierce-cliffs-21804.herokuapp.com/specificOrder?email=${loggedInUser.email}`)
             .then(res => res.json())
@@ -17,14 +19,18 @@ const ServiceList = () => {
 
     // console.log('order history', order);
 
+    const containerStyle = {
+        height: "100%",
+    }
+
     return (
-        <div className="container-fluid row">
+        <div className="container-fluid row" style={containerStyle}>
 
             <div className="col-md-2">
-            <Sidebar></Sidebar>
+                <Sidebar></Sidebar>
             </div>
 
-            <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
+            <div className="col-md-10" style={{ background: '#F4F7FC' }}>
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
                     <h1 className="animate__animated animate__fadeInLeft">Order History</h1>
                     <div class="ml-auto">
@@ -35,27 +41,31 @@ const ServiceList = () => {
                     </div>
                 </div>
 
-                <div className="customFormStyle ">
+                {/* <div className="customFormStyle"> */}
 
-                    <div className="bg-white p-5">
-                        <div className="animate__animated animate__fadeInRight">
+                <div className="p-5 container">
+                    <div className="animate__animated animate__fadeInRight row ">
                             {
-                                order.map(service => <div>
-                                    <div className="row">
-                                        <h5 class="card-title">{service.serviceName}</h5>
-                                        <button className="btn btn-outline-info ml-5">{service.status}</button>
-                                    </div>
-                                    <p class="card-text my-5">{service.details}</p>
-                                    <hr />
+                            order.map(service => <div className="col-md-4">
+                                <div className="card services-card my-3 border border-secondary rounded p-3" >
+                                    <button className="btn btn-outline-info ml-auto">{service.status}</button>
+                                    <h5 class="card-title">{service.serviceName}</h5>
+                                    <p>$ {service.price}</p>
+                                    <p class="card-text my-3">{service.details}</p>
+                                    <a href="/payment">Make Payment</a>
+                                </div>
+
+                                {/* <hr /> */}
                                 </div>)
                             }
+
                         </div>
 
                     </div>
                 </div>
 
             </div>
-        </div >
+        // </div >
     );
 };
 

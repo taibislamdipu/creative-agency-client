@@ -33,7 +33,7 @@ const Navbar = () => {
                             <a className="nav-link mr-5" href="#ourWorks">Our Portfolio</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link mr-5" onClick={comingSoon} href="#">Our Team</a>
+                            <a className="nav-link mr-5" href="#clientReview">Review</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link mr-5" href="#contactUs">Contact Us</a>

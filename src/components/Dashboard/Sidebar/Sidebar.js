@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faSignOutAlt, faCommentDots, faPlus, faUserPlus, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faList, faSignOutAlt, faCommentDots, faPlus, faUserPlus, faShoppingCart, faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../../App';
 import logo from '../../../images/logos/logo.png';
 
@@ -66,6 +66,7 @@ const Sidebar = () => {
                     photo: ''
                 }
                 setUser(signOutUser);
+                setLoggedInUser({});
                 console.log(res);
             })
 
@@ -101,8 +102,13 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faCommentDots} /> <span>Review</span>
                         </Link>
                     </li>
-
+                    <li>
+                        <Link to="/payment" className="sideBarlink">
+                            <FontAwesomeIcon icon={faMoneyCheckAlt} /> <span>Payment</span>
+                        </Link>
+                    </li>
                 </div>
+
                 {isAdmin &&
                     <div>
                         <li>

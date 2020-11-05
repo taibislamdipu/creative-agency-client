@@ -16,6 +16,7 @@ import ServiceList from './components/ManageOrder/ServiceList/ServiceList';
 import Admin from './components/Admin/Admin/Admin';
 import AddService from './components/Admin/AddService/AddService';
 import MakeAdmin from './components/Admin/MakeAdmin/MakeAdmin';
+import Payment from './components/ManageOrder/Payment/Payment';
 
 export const UserContext = createContext();
 
@@ -47,6 +48,10 @@ const App = () => {
 
             <Route path="/serviceList" >
               <ServiceList></ServiceList>
+            </Route>
+
+            <Route path="/payment" >
+              <Payment></Payment>
             </Route>
 
             <Route path="/postReview" >
