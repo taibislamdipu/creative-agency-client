@@ -1,7 +1,11 @@
 
 # Creative Agency 
 
-Complete MERN stack website for Graphis Design company who sales different types of services. 
+Complete MERN stack website for Software Company who sales different types of services. 
+
+## Server Side Code
+
+* https://github.com/taibislamdipu/creative-agency-server
 
 ## Key Features
 
@@ -48,7 +52,6 @@ Complete MERN stack website for Graphis Design company who sales different types
 
 ![alt preview](https://i.imgur.com/Dy29adh.gif)
 
-![alt preview](src/images/React-Creative-Agency-App.png)
 
 
 
