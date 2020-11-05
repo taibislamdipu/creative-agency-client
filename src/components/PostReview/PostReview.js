@@ -87,7 +87,7 @@ const PostReview = () => {
                     </div>
 
                     <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
-
+                
                 </form>
             </div>
         </div>

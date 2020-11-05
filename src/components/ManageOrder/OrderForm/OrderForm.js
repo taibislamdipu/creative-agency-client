@@ -53,6 +53,8 @@ const OrderForm = () => {
 
     }
 
+
+
     return (
         <div className="container-fluid row" style={containerStyle}>
 
@@ -92,11 +94,11 @@ const OrderForm = () => {
                 <form onSubmit={onSubmit} className="customFormStyle " >
 
                     <div className="form-group animate__animated animate__slideInRight">
-                        <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" value={name} placeholder="Your name / company’s name" required />
+                        <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" /* value={name} */ placeholder="Your name / company’s name" required />
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">
-                        <input type="email" onBlur={handleBlur} name="email" className="form-control form-control-lg" value={email} placeholder="Your email address" required />
+                        <input type="email" onBlur={handleBlur} name="email" className="form-control form-control-lg" /* value={email} */ placeholder="Your email address" required />
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">

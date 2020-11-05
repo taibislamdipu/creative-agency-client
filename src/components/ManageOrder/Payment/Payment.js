@@ -12,10 +12,12 @@ import SplitCardForm from './SplitCardForm';
 const stripePromise = loadStripe('pk_test_51Hk7lEGvF4n53p078HSGTkAYJf4w3CBlPHuv75jmWcreLohP4iavWxv1ByNc943Yb0JrJ1hiqQNUgnrAE94On1xH00yYdMrdU6');
 
 
-const Payment = () => {
+const Payment = ({ price }) => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
+
+    console.log('price', price);
 
     return (
         <div className="container-fluid row">

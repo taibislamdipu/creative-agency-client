@@ -35,9 +35,13 @@ const ServiceList = () => {
                     <h1 className="animate__animated animate__fadeInLeft">Order History</h1>
                     <div class="ml-auto">
                         <div className="row align-items-center animate__animated animate__fadeInRight">
-                            <h5>{name}</h5>
+                            <div className="col">
+                                <h5>{name}</h5>
+                                <p><small className="text-secondary">{email}</small></p>
+                            </div>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
+
                     </div>
                 </div>
 
@@ -47,12 +51,14 @@ const ServiceList = () => {
                     <div className="animate__animated animate__fadeInRight row ">
                             {
                             order.map(service => <div className="col-md-4">
-                                <div className="card services-card my-3 border border-secondary rounded p-3" >
-                                    <button className="btn btn-outline-info ml-auto">{service.status}</button>
+                                <div className="card custom-card-style my-3 border border-secondary rounded p-3" >
+                                    <div className="d-flex justify-content-between">
                                     <h5 class="card-title">{service.serviceName}</h5>
+                                        <button className="btn btn-outline-info">{service.status}</button>
+                                    </div>
                                     <p>$ {service.price}</p>
-                                    <p class="card-text my-3">{service.details}</p>
-                                    <a href="/payment">Make Payment</a>
+                                    <p class="card-text my-5">{service.details}</p>
+                                    <a href="/payment">${service.price} Make Payment</a>
                                 </div>
 
                                 {/* <hr /> */}
