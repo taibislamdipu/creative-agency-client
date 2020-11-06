@@ -23,7 +23,7 @@ const AllOrder = ({ allOrders }) => {
         fetch('https://fierce-cliffs-21804.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => {
-                const result = data.map(d => ({ ...d, status: 'pending' }))
+                const result = data.map(d => ({ ...d, status: 'Pending' }))
 
                 setAll(result);
             })

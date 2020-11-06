@@ -7,6 +7,9 @@ const OrderForm = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
 
+    const [formSuccessMessage, setFormSuccessMessage] = useState(null);
+    const [formErrorMessage, setFormErrorMessage] = useState(null);
+
     const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
 
@@ -37,10 +40,19 @@ const OrderForm = () => {
             .then(res => res.json())
             .then(success => {
                 if (success) {
-                    alert('Order has been send successfully.');
+                    // alert('Order has been send successfully.');
+                    setFormSuccessMessage('Order Place Successfully ✔️')
+                    setFormErrorMessage(null);
+                    // newForm;
+
+                }
+                else {
+                    setFormErrorMessage('Oh no! Something went wrong ❌');
+                    setFormSuccessMessage(null);
                 }
             })
             .catch(err => console.log(err));
+
     }
 
     const handleFileChange = (e) => {
@@ -91,7 +103,7 @@ const OrderForm = () => {
                 </div>
 
 
-                <form onSubmit={onSubmit} className="customFormStyle " >
+                <form onSubmit={onSubmit} className="customFormStyle mb-5" >
 
                     <div className="form-group animate__animated animate__slideInRight">
                         <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" /* value={name} */ placeholder="Your name / company’s name" required />
@@ -122,8 +134,18 @@ const OrderForm = () => {
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
-
+                    <div className="d-flex justify-content-between">
+                        <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
+                    
+                        <div>
+                            {
+                                formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                            }
+                            {
+                                formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
+                            }
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

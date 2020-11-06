@@ -101,7 +101,7 @@ const ServiceList = () => {
                                         <p class="card-text overflow-auto">{service.details}</p>
                                     </div>
                                     <div className="card-footer bg-white">
-                                        <a onClick={() => openModal(service)}>${service.price} Make Payment</a>
+                                        <button className="btn btn-primary w-100" onClick={() => openModal(service)}>${service.price} Make Payment</button>
                                     </div>
                                 </div>                        
                                 </div>)

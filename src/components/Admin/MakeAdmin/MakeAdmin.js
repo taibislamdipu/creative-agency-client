@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
@@ -6,8 +6,10 @@ import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 const MakeAdmin = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
     const { name, email, photoURL } = loggedInUser;
+
+    const [formSuccessMessage, setFormSuccessMessage] = useState(null);
+    const [formErrorMessage, setFormErrorMessage] = useState(null);
 
     const { register, handleSubmit, errors } = useForm();
 
@@ -21,7 +23,12 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(success => {
                 if (success) {
-                    alert('Email Added Successfully!!')
+                    // alert('Email Added Successfully!!')
+                    setFormSuccessMessage('Email Added Successfully ✔️')
+                    setFormErrorMessage(null);
+                } else {
+                    setFormErrorMessage('Email Adding Failed! ❌')
+                    setFormSuccessMessage(null);
                 }
             })
     }
@@ -50,12 +57,24 @@ const MakeAdmin = () => {
 
                         <label htmlFor="">Email</label>
                         <p>{errors.email && <span className="text-danger">This field is required</span>}</p>
-                        <form class="form-inline" onSubmit={handleSubmit(onSubmit)}>
+                        <form class="" onSubmit={handleSubmit(onSubmit)}>
 
-                            <div class="form-group mx-sm-3 mb-2">
+                            <div class="form-group">
                                 <input type="email" name="email" ref={register({ required: true })} class="form-control" id="" placeholder="jon@gamil.com" />
                             </div>
-                            <button type="submit" class="btn btn-success mb-2">Submit</button>
+
+                            <div className="d-flex justify-content-between">
+                                <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
+
+                                <div>
+                                    {
+                                        formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                                    }
+                                    {
+                                        formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
+                                    }
+                                </div>
+                            </div>
 
                         </form>
                     </div>
