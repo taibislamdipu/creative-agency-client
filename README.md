@@ -10,6 +10,7 @@ Complete MERN stack website for Software Company who sales different types of se
 ## Key Features
 
 * Customer can place order,
+* Customer can Pay by using their International Payment Card (Visa card, Mastercard and more),
 * Cancel the order,
 * Manage order history,
 * Post review about the services.
@@ -32,7 +33,7 @@ Complete MERN stack website for Software Company who sales different types of se
 
 ## Installation Guide
 
-`create-react-app creative-agency-client`
+`gh repo clone taibislamdipu/creative-agency-client`
 
 ## Link of API's
 
@@ -50,7 +51,7 @@ Complete MERN stack website for Software Company who sales different types of se
 
 ##
 
-![alt preview](https://i.imgur.com/Dy29adh.gif)
+![alt preview](https://i.imgur.com/ca2lYK4.gif)
 
 
 
