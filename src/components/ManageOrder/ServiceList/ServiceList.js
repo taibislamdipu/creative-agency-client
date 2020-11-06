@@ -39,13 +39,13 @@ const ServiceList = () => {
 
     // console.log('order history', order);
 
+    // dashboard right div style
     const containerStyle = {
         height: "100%",
     }
 
     var subtitle;
     const [modalIsOpen, setIsOpen] = React.useState(false);
-
     function openModal(service) {
         setIsOpen(true);
         // console.log('service', service);
@@ -81,7 +81,6 @@ const ServiceList = () => {
                             </div>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
-
                     </div>
                 </div>
 

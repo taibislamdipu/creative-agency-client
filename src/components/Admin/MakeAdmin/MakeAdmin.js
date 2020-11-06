@@ -26,6 +26,7 @@ const MakeAdmin = () => {
                     // alert('Email Added Successfully!!')
                     setFormSuccessMessage('Email Added Successfully ✔️')
                     setFormErrorMessage(null);
+                    document.getElementById('myform').reset(); //reset form data
                 } else {
                     setFormErrorMessage('Email Adding Failed! ❌')
                     setFormSuccessMessage(null);
@@ -44,9 +45,12 @@ const MakeAdmin = () => {
 
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
                     <h1 className="animate__animated animate__fadeInLeft">Add Admin</h1>
-                    <div class="ml-auto animate__animated animate__fadeInRight">
-                        <div className="row align-items-center">
-                            <h5>{name}</h5>
+                    <div class="ml-auto">
+                        <div className="row align-items-center animate__animated animate__fadeInRight">
+                            <div className="col">
+                                <h5>{name}</h5>
+                                <p><small className="text-secondary">{email}</small></p>
+                            </div>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
                     </div>
@@ -57,7 +61,7 @@ const MakeAdmin = () => {
 
                         <label htmlFor="">Email</label>
                         <p>{errors.email && <span className="text-danger">This field is required</span>}</p>
-                        <form class="" onSubmit={handleSubmit(onSubmit)}>
+                        <form class="" onSubmit={handleSubmit(onSubmit)} id="myform">
 
                             <div class="form-group">
                                 <input type="email" name="email" ref={register({ required: true })} class="form-control" id="" placeholder="jon@gamil.com" />

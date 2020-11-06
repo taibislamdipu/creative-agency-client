@@ -40,6 +40,8 @@ const AddService = () => {
                     // alert('Service Added Successfully!')
                     setFormSuccessMessage('Service Added Successfully ✔️')
                     setFormErrorMessage(null);
+                    document.getElementById('myform').reset(); //reset form data
+
                 } else {
                     setFormErrorMessage('Service post failed ❌')
                     setFormSuccessMessage(null);
@@ -70,15 +72,18 @@ const AddService = () => {
                 </div> */}
                 <div className="d-flex align-items-center dashboardHeaderBg p-5">
                     <h1 className="animate__animated animate__fadeInLeft">Add Service</h1>
-                    <div class="ml-auto animate__animated animate__fadeInRight">
-                        <div className="row align-items-center">
-                            <h5>{name}</h5>
+                    <div class="ml-auto">
+                        <div className="row align-items-center animate__animated animate__fadeInRight">
+                            <div className="col">
+                                <h5>{name}</h5>
+                                <p><small className="text-secondary">{email}</small></p>
+                            </div>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
                     </div>
                 </div>
 
-                <form onSubmit={onSubmit} className="customFormStyle" >
+                <form onSubmit={onSubmit} className="customFormStyle" id="myform">
                     
                     <div className="bg-white p-5" style={{ width: '800px' }}>
 

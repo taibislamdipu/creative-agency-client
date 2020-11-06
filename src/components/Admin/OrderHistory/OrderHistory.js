@@ -26,11 +26,14 @@ const OrderHistory = () => {
             <div className="d-flex align-items-center dashboardHeaderBg p-5">
                 <h1 className="animate__animated animate__fadeInLeft">All Order list</h1>
                 <div class="ml-auto">
-                    <div className="row align-items-center animate__animated animate__fadeInRight">
-                        <h5>{name}</h5>
-                        <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
+                        <div className="row align-items-center animate__animated animate__fadeInRight">
+                        <div className="col">
+                                <h5>{name}</h5>
+                            <p><small className="text-secondary">{email}</small></p>
+                        </div>
+                            <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
+                        </div>
                     </div>
-                </div>
             </div>
 
             {/* <div>

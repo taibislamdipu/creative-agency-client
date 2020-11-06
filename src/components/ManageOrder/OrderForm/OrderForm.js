@@ -28,7 +28,7 @@ const OrderForm = () => {
         formData.append('serviceName', info.serviceName);
         formData.append('details', info.details);
         formData.append('price', info.price);
-        formData.append('status', 'pending');
+        formData.append('status', 'Pending');
 
         // console.log('user data', data);
 
@@ -41,11 +41,15 @@ const OrderForm = () => {
             .then(success => {
                 if (success) {
                     // alert('Order has been send successfully.');
+
                     setFormSuccessMessage('Order Place Successfully ✔️')
                     setFormErrorMessage(null);
                     // newForm;
+                    document.getElementById('myform').reset(); //reset form data
+
 
                 }
+
                 else {
                     setFormErrorMessage('Oh no! Something went wrong ❌');
                     setFormSuccessMessage(null);
@@ -65,6 +69,7 @@ const OrderForm = () => {
 
     }
 
+    
 
 
     return (
@@ -96,14 +101,17 @@ const OrderForm = () => {
                     <h1 className="animate__animated animate__fadeInLeft">Order</h1>
                     <div class="ml-auto">
                         <div className="row align-items-center animate__animated animate__fadeInRight">
-                            <h5>{name}</h5>
+                            <div className="col">
+                                <h5>{name}</h5>
+                                <p><small className="text-secondary">{email}</small></p>
+                            </div>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
                     </div>
                 </div>
 
 
-                <form onSubmit={onSubmit} className="customFormStyle mb-5" >
+                <form onSubmit={onSubmit} className="customFormStyle mb-5" id="myform" >
 
                     <div className="form-group animate__animated animate__slideInRight">
                         <input type="text" onBlur={handleBlur} name="name" className="form-control form-control-lg" /* value={name} */ placeholder="Your name / company’s name" required />

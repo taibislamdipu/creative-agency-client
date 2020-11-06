@@ -35,6 +35,7 @@ const PostReview = () => {
                     // alert('Review post successfully.')
                     setFormSuccessMessage('Review post successfully ✔️')
                     setFormErrorMessage(null);
+                    document.getElementById('myform').reset(); //reset form data
                 } else {
                     setFormErrorMessage('Review post failed ❌')
                     setFormSuccessMessage(null);
@@ -48,6 +49,8 @@ const PostReview = () => {
         height: "100%",
     }
 
+
+
     return (
         <div className="container-fluid row" style={containerStyle}>
 
@@ -57,7 +60,7 @@ const PostReview = () => {
 
 
             {/* <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}> */}
-            <div className="col-md-10" style={{ background: '#F4F7FC' }}>
+            <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
 
 
                 {/* <div className="pt-5 ml-5 d-flex justify-content-between">
@@ -69,13 +72,16 @@ const PostReview = () => {
                     <h1 className="animate__animated animate__fadeInLeft">Review</h1>
                     <div class="ml-auto">
                         <div className="row align-items-center animate__animated animate__fadeInRight">
-                            <h5>{name}</h5>
+                            <div className="col">
+                                <h5>{name}</h5>
+                                <p><small className="text-secondary">{email}</small></p>
+                            </div>
                             <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
                     </div>
                 </div>
 
-                <form className="customFormStyle mb-5" onSubmit={handleSubmit(onSubmit)}>
+                <form className="customFormStyle mb-5" onSubmit={handleSubmit(onSubmit)} id="myform">
 
                     <div className="form-group animate__animated animate__fadeInRight">
                         <input type="text" ref={register({ required: true })} name="name" className="form-control form-control-lg" maxlength="20" placeholder="Your name" /* value={name} */ />
