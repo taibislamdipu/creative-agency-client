@@ -80,7 +80,7 @@ const Sidebar = () => {
     return (
 
 
-        <div className="sidebar d-flex flex-column justify-content-between " style={{ height: "100vh" }}>
+        <div className="sidebar d-flex flex-column justify-content-between position-fixed" style={{ height: "100vh" }}>
 
             <ul className="list-unstyled">
                 <a className="navbar-brand mt-5" href="/"><img src={logo} alt="" style={{ height: '50px' }} /></a>
@@ -102,11 +102,11 @@ const Sidebar = () => {
                             <FontAwesomeIcon icon={faCommentDots} /> <span>Review</span>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/payment" className="sideBarlink">
                             <FontAwesomeIcon icon={faMoneyCheckAlt} /> <span>Payment</span>
                         </Link>
-                    </li>
+                    </li> */}
                 </div>
 
                 {isAdmin &&

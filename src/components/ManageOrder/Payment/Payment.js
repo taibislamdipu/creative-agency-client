@@ -44,8 +44,8 @@ const Payment = ({ price }) => {
                             <h1 className="mb-5">Payment Form</h1>
 
                             <Elements stripe={stripePromise}>
-                                <SimpleCardForm></SimpleCardForm>
-                                {/* <SplitCardForm></SplitCardForm> */}
+                                {/* <SimpleCardForm></SimpleCardForm> */}
+                                <SplitCardForm></SplitCardForm>
                             </Elements>
                         </div>
 

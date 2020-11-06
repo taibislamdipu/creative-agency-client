@@ -102,18 +102,18 @@ const OrderForm = () => {
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">
-                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" placeholder="Graphic Design" required />
+                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" maxlength="20" placeholder="Graphic Design" required />
 
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">
-                        <textarea type="text" onBlur={handleBlur} name="details" className="form-control" cols="30" rows="6" placeholder="Project Details"></textarea>
+                        <textarea type="text" onBlur={handleBlur} name="details" className="form-control" cols="30" rows="6" maxlength="120" placeholder="Project Details" required></textarea>
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">
                         <div class="form-row">
                             <div class="col">
-                                <input type="number" onBlur={handleBlur} name="price" className="form-control form-control-lg" placeholder="Price" />
+                                <input type="number" min="10" step="1" oninput="validity.valid||(value='');" onBlur={handleBlur} name="price" className="form-control form-control-lg" placeholder="Price" required />
                             </div>
                             <div class="form-row mt-3">
                                 <input onChange={handleFileChange} type="file" className="btn w-100 form-control-lg btnUploadFile form-control" /> Upload project file

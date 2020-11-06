@@ -4,7 +4,8 @@ import {
     useElements,
     CardNumberElement,
     CardCvcElement,
-    CardExpiryElement
+    CardExpiryElement,
+    CardElement
 } from "@stripe/react-stripe-js";
 
 import useResponsiveFontSize from "./useResponsiveFontSize";
@@ -53,12 +54,28 @@ const SplitCardForm = () => {
             card: elements.getElement(CardNumberElement)
         });
         console.log("[PaymentMethod]", payload);
+
+        const cardElement = elements.getElement(CardNumberElement);
+
+        // Use your card Element with other Stripe.js APIs
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card: cardElement,
+        });
+
+        if (error) {
+            console.log('[error]', error);
+            alert('Oh no, your payment failed')
+        } else {
+            console.log('[PaymentMethod]', paymentMethod);
+            alert('Payment Successful')
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
             <div className="form-group">
-                <label >
+                <label className="w-100">
                     Card number
         <CardNumberElement
                         options={options}
@@ -120,7 +137,7 @@ const SplitCardForm = () => {
 
             <button className="btn btn-primary" type="submit" disabled={!stripe}>
                 Pay
-      </button>
+            </button>
         </form>
     );
 };

@@ -50,9 +50,9 @@ const App = () => {
               <ServiceList></ServiceList>
             </Route>
 
-            <Route path="/payment" >
+            {/* <Route path="/payment" >
               <Payment></Payment>
-            </Route>
+            </Route> */}
 
             <Route path="/postReview" >
               <PostReview></PostReview>
