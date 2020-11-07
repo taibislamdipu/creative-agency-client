@@ -33,6 +33,10 @@ const Login = () => {
 
         //Authenticate with Firebase using the Google provider object.
         firebase.auth().signInWithPopup(googleLoginProvider).then(function (result) {
+
+
+
+
             const { displayName, email, photoURL } = result.user;
             const signedInUser = { name: displayName, email, photoURL }
             setLoggedInUser(signedInUser);

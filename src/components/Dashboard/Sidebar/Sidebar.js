@@ -15,24 +15,6 @@ const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [isAdmin, setIsAdmin] = useState(false);
 
-    // useEffect(() => {
-    //     fetch(`https://fierce-cliffs-21804.herokuapp.com/admin?email=${loggedInUser.email}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log('admin props', data);
-    //             if (data) {
-    //                 const newUser = { ...loggedInUser };
-    //                 newUser.setUser = true;
-    //                 setLoggedInUser(newUser)
-    //             }
-    //             else {
-    //                 const newUser = { ...loggedInUser };
-    //                 newUser.setUser = false;
-    //                 setLoggedInUser(newUser)
-    //             }
-    //         })
-    // }, [])
-
     useEffect(() => {
         fetch('https://fierce-cliffs-21804.herokuapp.com/isAdmin', {
             method: 'POST',

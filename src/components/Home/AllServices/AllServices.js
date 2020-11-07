@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
 import './AllServices.css';
 
 const AllServices = ({ allServices }) => {
@@ -8,8 +9,9 @@ const AllServices = ({ allServices }) => {
 
     // console.log('allServices props', allServices);
 
-    return (
 
+
+    return (
         <div className="col-md-4 ">
             <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
                 <div className="card custom-card-style my-5 border border-secondary rounded trans-card" style={{ height: 250 }}>
@@ -23,11 +25,8 @@ const AllServices = ({ allServices }) => {
                         <p className="text-secondary">{description}</p>
                     </div>
                 </div>
-
             </Link>
         </div>
-
-
     );
 };
 

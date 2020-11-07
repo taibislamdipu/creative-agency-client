@@ -1,13 +1,12 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../../App';
 import Sidebar from '../Sidebar/Sidebar';
+import pageImg from '../../../images/dashboard-welcome-img.png';
 
 const Dashboard = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { name, email, photoURL } = loggedInUser;
-
-
 
     const containerStyle = {
         height: "100%",
@@ -26,6 +25,10 @@ const Dashboard = () => {
                         Welcome <span className="text-success">{name}</span> to Dashboard
                     </h1>
                     <hr />
+
+                    <div className="text-center my-5">
+                        <img src={pageImg} alt="" style={{ height: '500px' }} className="img-fluid animate__animated animate__flipInX" />
+                    </div>
                 </div>
             </div>
 

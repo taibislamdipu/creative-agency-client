@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 import Sidebar from '../../Dashboard/Sidebar/Sidebar';
@@ -10,6 +10,8 @@ const MakeAdmin = () => {
 
     const [formSuccessMessage, setFormSuccessMessage] = useState(null);
     const [formErrorMessage, setFormErrorMessage] = useState(null);
+
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const { register, handleSubmit, errors } = useForm();
 
@@ -34,61 +36,76 @@ const MakeAdmin = () => {
             })
     }
 
+    useEffect(() => {
+        fetch('https://fierce-cliffs-21804.herokuapp.com/isAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: loggedInUser.email })
+        })
+            .then(res => res.json())
+            .then(data => setIsAdmin(data));
+    }, [])
+
+
     return (
-        <div className="container-fluid row">
+        <div>
+            {isAdmin && 
+            <div className="container-fluid row">
 
-            <div className="col-md-2">
-            <Sidebar></Sidebar>
-            </div>
+                <div className="col-md-2">
+                    <Sidebar></Sidebar>
+                </div>
 
-            <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
+                <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
 
-                <div className="d-flex align-items-center dashboardHeaderBg p-5">
-                    <h1 className="animate__animated animate__fadeInLeft">Add Admin</h1>
-                    <div class="ml-auto">
-                        <div className="row align-items-center animate__animated animate__fadeInRight">
-                            <div className="col">
-                                <h5>{name}</h5>
-                                <p><small className="text-secondary">{email}</small></p>
+                    <div className="d-flex align-items-center dashboardHeaderBg p-5">
+                        <h1 className="animate__animated animate__fadeInLeft">Add Admin</h1>
+                        <div class="ml-auto">
+                            <div className="row align-items-center animate__animated animate__fadeInRight">
+                                <div className="col">
+                                    <h5>{name}</h5>
+                                    <p><small className="text-secondary">{email}</small></p>
+                                </div>
+                                <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                             </div>
-                            <img src={photoURL} alt="" className="mx-3 rounded-circle" width="60" />
                         </div>
                     </div>
-                </div>
 
-                <div className="customFormStyle">
-                    <div className="form-group bg-white p-5" style={{ width: '800px' }}>
+                    <div className="customFormStyle">
+                        <div className="form-group bg-white p-5" style={{ width: '800px' }}>
 
-                        <label htmlFor="">Email</label>
-                        <p>{errors.email && <span className="text-danger">This field is required</span>}</p>
-                        <form class="" onSubmit={handleSubmit(onSubmit)} id="myform">
+                            <label htmlFor="">Email</label>
+                            <p>{errors.email && <span className="text-danger">This field is required</span>}</p>
+                            <form class="" onSubmit={handleSubmit(onSubmit)} id="myform">
 
-                            <div class="form-group">
-                                <input type="email" name="email" ref={register({ required: true })} class="form-control" id="" placeholder="jon@gamil.com" />
-                            </div>
-
-                            <div className="d-flex justify-content-between">
-                                <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
-
-                                <div>
-                                    {
-                                        formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
-                                    }
-                                    {
-                                        formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
-                                    }
+                                <div class="form-group">
+                                    <input type="email" name="email" ref={register({ required: true })} class="form-control" id="" placeholder="jon@gamil.com" />
                                 </div>
-                            </div>
 
-                        </form>
+                                <div className="d-flex justify-content-between">
+                                    <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
+
+                                    <div>
+                                        {
+                                            formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                                        }
+                                        {
+                                            formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
+                                        }
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
+
+
+
+
                 </div>
-
-
-
-
-            </div>
-        </div >
+            </div >
+            }
+        </div>
     );
 };
 
