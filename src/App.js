@@ -17,6 +17,7 @@ import Admin from './components/Admin/Admin/Admin';
 import AddService from './components/Admin/AddService/AddService';
 import MakeAdmin from './components/Admin/MakeAdmin/MakeAdmin';
 import Payment from './components/ManageOrder/Payment/Payment';
+import NoFound from './components/NoFound/NoFound';
 
 export const UserContext = createContext();
 
@@ -77,6 +78,12 @@ const App = () => {
             <Route exact path="/" >
               <Home></Home>
             </Route>
+            
+            <Route path="*" >
+              <NoFound></NoFound>
+            </Route>
+
+
 
       </Switch>
     </Router>

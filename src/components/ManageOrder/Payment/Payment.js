@@ -38,7 +38,6 @@ const Payment = ({ price }) => {
                 </div>
 
                 <div className="customFormStyle w-50">
-
                     <div className="bg-white p-5">
                         <div className="animate__animated animate__fadeInRight">
                             <h1 className="mb-5">Payment Form</h1>
