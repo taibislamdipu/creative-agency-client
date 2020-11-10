@@ -1,0 +1,11 @@
+
+
+.navbarStyle{
+    /* background: linear-gradientbackground-color: #06bcfb; */
+    background-image: linear-gradient(315deg, #4884ee 0%, #06bcfb 74%);
+    
+  }
+
+.nav-link a:hover{
+    color: red;
+}

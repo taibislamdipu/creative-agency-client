@@ -37,7 +37,7 @@ const ServiceList = () => {
             .then(data => setOrder(data))
     }, [])
 
-    // console.log('order history', order);
+    console.log('order history', order);
 
     // dashboard right div style
     const containerStyle = {
@@ -100,7 +100,7 @@ const ServiceList = () => {
                                         <p class="card-text overflow-auto">{service.details}</p>
                                     </div>
                                     <div className="card-footer bg-white">
-                                        <button className="btn btn-primary w-100" onClick={() => openModal(service)}>${service.price} Make Payment</button>
+                                        <button className="btn btnSubmit w-100" onClick={() => openModal(service)}>${service.price} Make Payment</button>
                                     </div>
                                 </div>                        
                                 </div>)

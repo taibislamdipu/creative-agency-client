@@ -30,7 +30,7 @@ const OrderForm = () => {
         formData.append('price', info.price);
         formData.append('status', 'Pending');
 
-        // console.log('user data', data);
+        console.log('user data', data);
 
         // insert order info to database
         fetch('https://fierce-cliffs-21804.herokuapp.com/addOrder', {
@@ -46,8 +46,6 @@ const OrderForm = () => {
                     setFormErrorMessage(null);
                     // newForm;
                     document.getElementById('myform').reset(); //reset form data
-
-
                 }
 
                 else {
@@ -69,14 +67,14 @@ const OrderForm = () => {
 
     }
 
-    
+
 
 
     return (
         <div className="container-fluid row" style={containerStyle}>
 
             <div className="col-md-2">
-            <Sidebar></Sidebar>
+                <Sidebar></Sidebar>
             </div>
 
             {/* <div style={{ height: '100vh', width: '80%', background: '#F4F7FC' }}> */}
@@ -136,19 +134,22 @@ const OrderForm = () => {
                                 <input type="number" min="10" step="1" oninput="validity.valid||(value='');" onBlur={handleBlur} name="price" className="form-control form-control-lg" placeholder="Price" required />
                             </div>
                             <div class="form-row mt-3">
-                                <input onChange={handleFileChange} type="file" className="btn w-100 form-control-lg btnUploadFile form-control" /> Upload project file
-                                <span className="text-secondary">*Optional</span>
+                                <input onChange={handleFileChange} type="file" className="btn w-100 form-control-lg btnUploadFile form-control" required /> Upload project file
+                                {/* <span className="text-secondary">*Optional</span> */}
                             </div>
                         </div>
                     </div>
 
                     <div className="d-flex justify-content-between">
-                        <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
-                    
+                        <div>
+                            <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
+                        </div>
+
                         <div>
                             {
-                                formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                                formSuccessMessage && <p className="animate__animated animate__fadeInDown formSubmitMsgStyle">{formSuccessMessage}</p>
                             }
+
                             {
                                 formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
                             }

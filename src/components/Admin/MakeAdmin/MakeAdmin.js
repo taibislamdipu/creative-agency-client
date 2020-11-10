@@ -83,11 +83,11 @@ const MakeAdmin = () => {
                                 </div>
 
                                 <div className="d-flex justify-content-between">
-                                    <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
+                                    <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight">Submit</button>
 
                                     <div>
                                         {
-                                            formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                                            formSuccessMessage && <p className="animate__animated animate__fadeInDown formSubmitMsgStyle">{formSuccessMessage}</p>
                                         }
                                         {
                                             formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>

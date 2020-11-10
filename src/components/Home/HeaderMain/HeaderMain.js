@@ -11,7 +11,7 @@ const HeaderMain = () => {
     }
 
     const customStyle = {
-        marginTop: '90px'
+        marginTop: '80px'
     }
 
     return (

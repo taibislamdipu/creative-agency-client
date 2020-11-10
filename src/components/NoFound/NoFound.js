@@ -7,8 +7,8 @@ const NoFound = () => {
             <div>
                 <img src={errorImage} alt="" className="img-fluid" />
             </div>
-            <div className="mt-5">
-                <a href="/">Back To Home</a>
+            <div>
+                <a href="/" style={{ fontSize: 30 }}>Back To Home</a>
             </div>
         </div>
     );

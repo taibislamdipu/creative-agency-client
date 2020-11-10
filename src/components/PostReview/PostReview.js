@@ -20,7 +20,7 @@ const PostReview = () => {
     const onSubmit = data => {
         // sending user gmail profile image to database as userPhoto
         data.userPhoto = photoURL;
-        
+
         // console.log('gmail data', data);
 
         // insert review into database
@@ -55,7 +55,7 @@ const PostReview = () => {
         <div className="container-fluid row" style={containerStyle}>
 
             <div className="col-md-2">
-            <Sidebar></Sidebar>
+                <Sidebar></Sidebar>
             </div>
 
 
@@ -101,10 +101,10 @@ const PostReview = () => {
 
                     <div className="d-flex justify-content-between">
                         <button type="submit" className="btn btnSubmit animate__animated animate__fadeInRight" >Submit</button>
-                    
+
                         <div>
                             {
-                                formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                                formSuccessMessage && <p className="animate__animated animate__fadeInDown formSubmitMsgStyle">{formSuccessMessage}</p>
                             }
                             {
                                 formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>

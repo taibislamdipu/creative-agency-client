@@ -38,6 +38,7 @@ const SimpleCardForm = () => {
         } else {
             console.log('[PaymentMethod]', paymentMethod);
             // alert('Payment Successful')
+            console.log('paymentMethod', paymentMethod);
             setPaymentSuccess(paymentMethod.id);
             setPaymentError(null);
         }

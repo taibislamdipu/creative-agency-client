@@ -77,7 +77,7 @@ const AddService = () => {
                         <Sidebar></Sidebar>
                     </div>
 
-                <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
+                    <div className="col-md-10" style={{ height: '100vh', background: '#F4F7FC' }}>
                         <div className="d-flex align-items-center dashboardHeaderBg p-5">
                             <h1 className="animate__animated animate__fadeInLeft">Add Service</h1>
                             <div class="ml-auto">
@@ -118,7 +118,7 @@ const AddService = () => {
 
                                     <div>
                                         {
-                                            formSuccessMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'green' }}>{formSuccessMessage}</p>
+                                        formSuccessMessage && <p className="animate__animated animate__fadeInDown formSubmitMsgStyle" >{formSuccessMessage}</p>
                                         }
                                         {
                                             formErrorMessage && <p className="animate__animated animate__fadeInDown" style={{ color: 'red' }}>{formErrorMessage}</p>
