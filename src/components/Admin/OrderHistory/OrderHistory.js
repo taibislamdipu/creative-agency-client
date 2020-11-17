@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import AllOrder from '../../ManageOrder/AllOrder/AllOrder';
 
+import SearchField from 'react-search-field';
+
+
 const OrderHistory = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -31,6 +34,12 @@ const OrderHistory = () => {
             .then(data => setIsAdmin(data));
     }, [])
 
+
+    // search bar function
+    function onChange() {
+        console.log('object');
+    }
+
     return (
 
         <div>
@@ -50,6 +59,13 @@ const OrderHistory = () => {
                         </div>
                     </div>
 
+                <div className="my-3">
+                    <SearchField
+                        placeholder='Search item'
+                        onChange={onChange}
+                    />
+                </div>
+
                     <div style={customStyle}>
                         {
                             order.map(allOrders => <AllOrder allOrders={allOrders}></AllOrder>)
@@ -57,6 +73,7 @@ const OrderHistory = () => {
                     </div>
                 </div>
             }
+
         </div>
 
     );

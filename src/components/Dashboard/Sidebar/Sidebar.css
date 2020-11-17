@@ -1,12 +1,33 @@
 .sidebar li{
     margin-bottom: 1em;
     padding-left: 40px; 
+    font-weight: bold;
 }
 
-.sideBarlink:hover{
-    color: #009444;
-    text-decoration: none;
+.sideBarlink::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #3E8FFB;
+    transition: width .3s;
 }
+
+.sideBarlink:hover::after {
+    width: 100%;
+    
+}
+
+ .sideBarlink:hover{
+    text-decoration: none;
+} 
+
+ /* .sideBarlink:hover{
+    color: #3E8FFB;
+    border-bottom: 1px solid #3E8FFB;
+    text-decoration: none;
+    transition: .3s;
+}  */
 
 .sideBarlink{
     color: black;
