@@ -120,12 +120,12 @@ const OrderForm = () => {
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">
-                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" maxlength="20" placeholder="Graphic Design" required />
+                        <input type="text" onBlur={handleBlur} name="serviceName" className="form-control form-control-lg" maxlength="40" placeholder="Graphic Design" required />
 
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">
-                        <textarea type="text" onBlur={handleBlur} name="details" className="form-control" cols="30" rows="6" maxlength="120" placeholder="Project Details" required></textarea>
+                        <textarea type="text" onBlur={handleBlur} name="details" className="form-control" cols="30" rows="6" /* maxlength="120" */ placeholder="Project Details" required></textarea>
                     </div>
 
                     <div className="form-group animate__animated animate__slideInRight">

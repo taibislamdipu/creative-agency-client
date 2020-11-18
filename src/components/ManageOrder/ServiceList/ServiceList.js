@@ -108,9 +108,13 @@ const ServiceList = () => {
                                     <div className="d-flex justify-content-between">
                                     <h5 class="card-title">{service.serviceName}</h5>
                                         <button className="btn btn-outline-info">{service.status}</button>
-                                    </div>
+                                        </div >
                                         <p>$ {service.price}</p>
-                                        <p class="card-text overflow-auto">{service.details}</p>
+
+                                        {/* <p class="card-text">{service.details}</p> */}
+                                        <div style={{ height: 100, overflow: 'auto' }}>
+                                            <p class="card-text">{service.details}</p>
+                                        </div>
                                     </div>
                                     <div className="card-footer bg-white">
                                         <button className="btn btnSubmit w-100" onClick={() => openModal(service)}><span style={{ fontWeight: 'bold' }}>${service.price}</span> Make Payment</button>

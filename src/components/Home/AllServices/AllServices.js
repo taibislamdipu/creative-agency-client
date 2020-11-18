@@ -13,7 +13,8 @@ const AllServices = ({ allServices }) => {
 
     return (
         <div className="col-md-4 ">
-            <Link to={'/dashboard'} style={{ textDecoration: 'none' }} >
+            {/* <Link to={'/dashboard'} style={{ textDecoration: 'none' }} > */}
+            <Link to={'/orderForm'} style={{ textDecoration: 'none' }} >
                 <div className="card custom-card-style my-5 border border-secondary rounded trans-card" style={{ height: 250 }}>
                     <div className="card-body ">
                         {

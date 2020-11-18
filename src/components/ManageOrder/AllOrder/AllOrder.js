@@ -39,7 +39,7 @@ const AllOrder = ({ allOrders }) => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    alert('Status updated successfully ✔️')
+                    alert('Status updated successfully.')
                 }
             })
     }
