@@ -33,11 +33,9 @@ const SimpleCardForm = () => {
             console.log('[error]', error);
             setPaymentError(error.message)
             setPaymentSuccess(null);
-            // alert('Oh no, your payment failed')
-            // console.log('paymentError', paymentError);
+
         } else {
             console.log('[PaymentMethod]', paymentMethod);
-            // alert('Payment Successful')
             console.log('paymentMethod', paymentMethod);
             setPaymentSuccess(paymentMethod.id);
             setPaymentError(null);
@@ -47,11 +45,11 @@ const SimpleCardForm = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <CardElement />
-            <button className="btn btn-primary mt-5" type="submit" disabled={!stripe}>
-                Pay
-            </button>
-        </form>
+                <CardElement />
+                <button className="btn btnSubmit w-25 font-weight-bold mt-5" type="submit" disabled={!stripe}>
+                    Pay
+                </button>
+            </form>
             {
                 paymentError && <p style={{ color: 'red' }}>{paymentError}</p>
             }

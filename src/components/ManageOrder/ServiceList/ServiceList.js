@@ -67,8 +67,9 @@ const ServiceList = () => {
         console.log('object');
     }
 
-    return (
 
+
+    return (
 
         <div className="container-fluid row" style={containerStyle}>
 
@@ -90,7 +91,6 @@ const ServiceList = () => {
                     </div>
                 </div>
 
-                {/* <div className="customFormStyle"> */}
                 <div className="my-3">
                     <SearchField
                         placeholder='Search item'
@@ -101,17 +101,15 @@ const ServiceList = () => {
 
                 <div className="p-5 container">
                     <div className="animate__animated animate__fadeInRight row ">
-                            {
+                        {
                             order.map(service => <div className="col-md-6">
                                 <div className="card custom-card-style my-3 border border-secondary rounded p-3" style={{ height: 300 }}>
                                     <div className="card-body">
-                                    <div className="d-flex justify-content-between">
-                                    <h5 class="card-title">{service.serviceName}</h5>
-                                        <button className="btn btn-outline-info">{service.status}</button>
+                                        <div className="d-flex justify-content-between">
+                                            <h5 class="card-title">{service.serviceName}</h5>
+                                            <button className="btn btn-outline-info">{service.status}</button>
                                         </div >
                                         <p>$ {service.price}</p>
-
-                                        {/* <p class="card-text">{service.details}</p> */}
                                         <div style={{ height: 100, overflow: 'auto' }}>
                                             <p class="card-text">{service.details}</p>
                                         </div>
@@ -119,17 +117,16 @@ const ServiceList = () => {
                                     <div className="card-footer bg-white">
                                         <button className="btn btnSubmit w-100" onClick={() => openModal(service)}><span style={{ fontWeight: 'bold' }}>${service.price}</span> Make Payment</button>
                                     </div>
-                                </div>                        
-                                </div>)
-                            }
+                                </div>
+                            </div>)
+                        }
                     </div>
 
-                    </div>
+                </div>
             </div>
 
             <div>
 
-                {/* <button onClick={openModal}>Open Modal</button> */}
                 <Modal
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}
@@ -138,17 +135,9 @@ const ServiceList = () => {
                     contentLabel="Example Modal"
                 >
 
-                    <h2 className="mb-5" ref={_subtitle => (subtitle = _subtitle)}>Make Payment of <span style={{ color: '#23272A' }}>${price}</span></h2>
-                    {/* <button onClick={closeModal}>close</button> */}
-                    {/* {service.price} */}
-                    {/* <div>I am a modal </div> */}
-                    {/* <form>
-                        <input />
-                        <button>tab navigation</button>
-                        <button>stays</button>
-                        <button>inside</button>
-                        <button>the modal</button>
-                    </form> */}
+                    <h2 className="mb-5" ref={_subtitle => (subtitle = _subtitle)}>
+                        Make Payment of <span style={{ color: '#23272A' }}>${price}</span>
+                    </h2>
 
                     <Elements stripe={stripePromise}>
                         <SimpleCardForm></SimpleCardForm>
@@ -159,8 +148,8 @@ const ServiceList = () => {
             </div>
 
 
-            </div>
-        // </div >
+        </div>
+
     );
 };
 

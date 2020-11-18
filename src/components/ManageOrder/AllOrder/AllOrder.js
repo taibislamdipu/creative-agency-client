@@ -1,6 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import Modal from 'react-modal';
+
+const customStylesModal = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        width: '50%'
+    }
+};
 
 const AllOrder = ({ allOrders }) => {
 
@@ -18,6 +31,8 @@ const AllOrder = ({ allOrders }) => {
         { value: 'Done', label: 'Done' },
         { value: 'Cancel', label: 'Cancel' },
     ]
+
+
 
     useEffect(() => {
         fetch('https://fierce-cliffs-21804.herokuapp.com/allOrders')
@@ -46,6 +61,29 @@ const AllOrder = ({ allOrders }) => {
 
     const defaultOption = options[0];
 
+    var subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    function openModal(service) {
+        setIsOpen(true);
+        // console.log('service', service);
+        // setPrice(service.price);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = '#32A6EF';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    // Print Project Description Function
+    function printDoc() {
+        const description = document.getElementById('project-description');
+        window.print(description);
+    }
+
     return (
 
         <div>
@@ -53,9 +91,9 @@ const AllOrder = ({ allOrders }) => {
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Email ID</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Service</th>
-                        <th scope="col">Project Details</th>
+                        <th scope="col">Details</th>
                         <th scope="col">Image</th>
                         <th scope="col">Ordered</th>
                         <th scope="col">Status</th>
@@ -66,13 +104,35 @@ const AllOrder = ({ allOrders }) => {
                         <th>{name}</th>
                         <td>{email}</td>
                         <td>{serviceName}</td>
-                        <td>{details}</td>
+                        {/* <td>{details}</td> */}
+                        <td>
+                            <button className="btn btn-light" onClick={openModal} id="view-btn">View</button>
+
+                            <Modal
+                                isOpen={modalIsOpen}
+                                onAfterOpen={afterOpenModal}
+                                onRequestClose={closeModal}
+                                style={customStylesModal}
+                                contentLabel="Example Modal"
+                            >
+
+                                <div className="mb-5" ref={_subtitle => (subtitle = _subtitle)}>
+                                    <h3>Project Description</h3>
+
+                                    <button className="btn btn-light" onClick={printDoc}>Print</button>
+
+                                    <p className="text-secondary" id="project-description">
+                                        {details}
+                                    </p>
+                                </div>
+                            </Modal>
+                        </td>
 
                         <td>
                             {
-                                allOrders.orderImg ? <img className="rounded-circle " style={{ height: '40px' }} src={`data:image/png;base64,${allOrders.orderImg.img}`} alt="" />
+                                allOrders.orderImg ? <img className="rounded " style={{ height: '40px' }} src={`data:image/png;base64,${allOrders.orderImg.img}`} alt="" />
                                     :
-                                    <img className="rounded-circle" style={{ height: '40px' }} src={`https://fierce-cliffs-21804.herokuapp.com/allOrders/${orderImg.img}`} alt="" />
+                                    <img className="rounded" style={{ height: '40px' }} src={`https://fierce-cliffs-21804.herokuapp.com/allOrders/${orderImg.img}`} alt="" />
                             }
                         </td>
                         <td>{date}</td>
