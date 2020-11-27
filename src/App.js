@@ -43,9 +43,9 @@ const App = () => {
               <Login></Login>
             </Route>
 
-            <Route path="/orderForm" >
+            <PrivateRoute path="/orderForm" >
               <OrderForm></OrderForm>
-            </Route>
+            </PrivateRoute>
 
             <Route path="/serviceList" >
               <ServiceList></ServiceList>
